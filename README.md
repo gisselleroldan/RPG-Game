@@ -3,28 +3,29 @@ In this exercise, you will develop a hero RPG (*Role Playing Game*) using all of
 
 The game starts off with 2 characters: a `hero` and a `goblin`. Each character will be given a starting health and starting value. 
 
-Each character also has a power that can be used to attack their opponent. In the initial scenario, `hero's` opponent is the `goblin`, and the `goblin's` opponent is the `hero`.
+Each character also has a power that can be used to attack their opponent. In the initial scenario, the `hero's` opponent is the `goblin`, and the `goblin's` opponent is the `hero`.
 
 When either character attacks his/her opponent, the opponent's health will decrease by the amount of power of the attacking character.
 
 For example
-
-If the hero starts off with the following: 
-
-- health = 9
-- power = 4
-
-And the `goblin` starts off with the following:  
-
-- health = 7
-- power = 3
-
-Then when the hero attacks the goblin, the goblin's health will decrease by 4.
-
-The result of goblin's health after being attacked
-
-- health = 3  ==> (7 - 4)
-- power = 3
+>
+>If the hero starts off with the following: 
+>
+>- health = 9
+>- power = 4
+>
+>And the `goblin` starts off with the following:  
+>
+>- health = 7
+>- power = 3
+>
+>Then when the hero attacks the goblin, the goblin's health will decrease by 4.
+>
+>The result of goblin's health after being attacked
+>
+>- health = 3  ==> (7 - 4)
+>- power = 3
+>
 
 
 # RPG Game Part 1
