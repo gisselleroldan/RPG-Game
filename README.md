@@ -53,6 +53,7 @@ Make a Hero class to store the health and power of the hero, and make a `Goblin`
 
 ## Step 2
 Take the code for the hero attacking the goblin and extract it into a method (call it `attack`) of the `Hero` class. Replace the existing code with a call to the attack method. Hint: `attack` should take in the goblin (enemy) as a parameter: `hero.attack(goblin)`
+
 [Video Walk through](https://youtu.be/in5hLnhX_eA)
 
 ## Step 3
