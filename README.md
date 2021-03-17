@@ -1,14 +1,48 @@
 # RPG Game
+In this exercise, you will develop a hero RPG (*Role Playing Game*) using all of the cool new python knowledge you've acquired. This game will be created using **Object Oriented Programming**.
+
+The game starts off with 2 characters: a `hero` and a `goblin`. Each character will be given a starting health and starting value. 
+
+Each character also has a power that can be used to attack their opponent. In the initial scenario, `hero's` opponent is the `goblin`, and the `goblin's` opponent is the `hero`.
+
+When either character attacks his/her opponent, the opponent's health will decrease by the amount of power of the attacking character.
+
+For example
+
+If the hero starts off with the following: 
+
+- health = 9
+- power = 4
+
+And the `goblin` starts off with the following:  
+
+- health = 7
+- power = 3
+
+Then when the hero attacks the goblin, the goblin's health will decrease by 4.
+
+The result of goblin's health after being attacked
+
+- health = 3  ==> (7 - 4)
+- power = 3
+
+
+# RPG Game Part 1
 
 Take the RPG game and rewrite it using objects.
 
-Clone this Starting Template.
+Run following command to clone this repository onto your local computer
 
-Use hero_rpg.py as a starting point for your game
+```bash
+git clone https://github.com/DigitalCraftsStudents/python-rpg-starter.git
+cd python-rpg-starter
+rm -rf .git
+git init
+```
+
+Use `hero_rpg.py`, located in this repository, as a starting point for your game.
 
 As you complete each step, commit, push, and tag the final working version. In the future we'll base a refactor off of one the steps.
-
-# RPG Game Part 1
 
 ## Step 1
 Make a Hero class to store the health and power of the hero, and make a `Goblin` class to store the health and power of the goblin. Use a hero object in place of the variables `hero_health` and `hero_power` and use a goblin object in place of the variables `goblin_health` and `goblin_power` all through out the app.
@@ -46,5 +80,7 @@ The methods `attack` and `print_status` method in `Hero` and `Goblin` look almos
 Create a zombie character that cannot die and have it fight the hero instead of the goblin.
 
 # RPG Game Part 2
+
+Follow the link below to continue building new characters with new abilities to your game.
 
 - [RPG Part 2](./RPG-Part2.md)
