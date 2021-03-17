@@ -2,7 +2,9 @@ RPG Game
 
 Take the RPG game and rewrite it using objects.
 
-Fork [Hero RPG](https://github.com/pizzapanther/hero-rpg) Starting Template
+Clone this Starting Template.
+
+Use hero_rpg.py as a starting point for your game
 
 As you complete each step, commit, push, and tag the final working version. In the future we'll base a refactor off of one the steps.
 
