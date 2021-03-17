@@ -35,12 +35,17 @@ Take the RPG game and rewrite it using objects.
 
 Run following command to clone this repository onto your local computer
 
-```bash
-git clone https://github.com/DigitalCraftsStudents/python-rpg-starter.git
-cd python-rpg-starter
-rm -rf .git
-git init
-```
+1. Clone this repository: `git clone https://github.com/DigitalCraftsStudents/python-rpg-starter.git`
+2. `cd python-rpg-starter`
+3. `git init`
+4. `git add`
+5. `git commit -m 'rpg game'`
+6. Create a new repository *without* a README in **your** github account
+7. Follow the instructions to connect and push your local repo to your remote repository 
+    - `git remote remove origin`
+    - `git remote add origin [url of your repo]`
+    - `git push --set-upstream origin main`
+
 
 Use `hero_rpg.py`, located in this repository, as a starting point for your game.
 
