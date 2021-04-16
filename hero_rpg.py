@@ -20,6 +20,7 @@ class Character():
             return True
         else:
             print(f'{self.name} is dead.')
+            return False
 
     def print_status(self):
         print(f"{self.name} has {self.health} health and {self.power} power.")
@@ -40,11 +41,8 @@ class Hero(Character):
         else:
             enemy.health -= self.power
             print(f"You do {self.power} damage to the {enemy.name}")
-
-        
         
 
-# Zombie character
 class Zombie(Character):
     def __init__(self, health, power):
         super().__init__(health, power)
@@ -56,13 +54,12 @@ class Zombie(Character):
 
     def alive(self):
         return True
-
         
-# Goblin Character
 class Goblin(Character):
     def __init__(self, health, power):
         super().__init__(health, power)
         self.name = "Goblin"
+        self.bounty = 4
 
     def attack(self, enemy):
         enemy.health -= self.power
@@ -72,33 +69,63 @@ class Shadow(Character):
     def __init__(self, health, power):
         super().__init__(health, power)
         self.name = "Shadow"
+        self.bounty = 10
 
-#Medic Character
 class Medic(Character):
     def __init__(self, health, power):
         super().__init__(health, power)
         self.name = "Medic"
+        self.bounty = 1
 
     def attack(self, enemy):
         enemy.health -= self.power
         print("The Medic does {} damage to you.".format(self.power))
 
-    #20% chance of recuperating 2 health points after being attacked
+class Wizard(Character):
+    def __init__(self, health, power):
+        super().__init__(health, power)
+        self.name = "Wizard"
+        self.bounty = 4
 
+    def attack(self, enemy):
+        enemy.health -= self.power
+        print("The wizard does {} damage to you.".format(self.power))   
+
+class Sniper(Character):
+    def __init__(self, health, power):
+        super().__init__(health, power)
+        self.name = "Sniper"
+        self.bounty = 3    
+
+    def attack(self, enemy):
+        chance = random.randint(0,100)
+        if chance > 70:
+            print('Target Locked! \n')
+            enemy.health -= self.power * 3
+            print(f"You do {self.power * 3} damage to the {enemy.name}")
+        else:
+            print(f'{self.name} missed!')
 
 
 def main():
-    hero = Hero(10, 5)
+    bounty = 0
+
+    hero = Hero(50, 5)
     goblin = Goblin(6,2)
     zombie = Zombie(100, 1)
     medic = Medic(10, 4)
     shadow = Shadow(1,3)
+    wizard = Wizard(10, 2)
+    sniper = Sniper(10,2)
 
     characterList = {
         "goblin": goblin,
         "zombie": zombie,
         "medic": medic,
-        "shadow": shadow}
+        "shadow": shadow,
+        "wizard": wizard,
+        "sniper": sniper
+        }
 
 
     while hero.alive():
@@ -108,6 +135,8 @@ def main():
         print("1. fight")
         print("2. do nothing")
         print("3. flee")
+        print("4. Show Bounty")
+
         print("> ", end=' ')
         raw_input = input()
         if raw_input == "1":
@@ -128,6 +157,16 @@ def main():
                     hero.attack(shadow)
                 else:
                     print('Hero missed!')
+            else:
+                hero.attack(characterList[userChoice])
+            
+            if characterList[userChoice].alive():
+                characterList[userChoice].print_status()
+            else:
+                print(f'Collected {characterList[userChoice].bounty} Bounty')
+                bounty += characterList[userChoice].bounty
+
+
                 # # Hero attacks chosen character 
                 # hero.attack(characterList[userChoice])
                 # if characterList[userChoice].alive():
@@ -142,6 +181,8 @@ def main():
         elif raw_input == "3":
             print('Goodbye')
             break
+        elif raw_input == "4":
+            print(f'Your bounty total is {bounty}')
         else:
             print("Invalid input {}".format(raw_input))
 
@@ -153,30 +194,3 @@ def main():
 
 main()
 
-
-#         if raw_input == "1":
-#             for character in characterList:
-#                 print(character)
-#             userChoice = input('Who do you want to fight? ').lower()
-#             if userChoice in characterList:
-#                 # Hero attacks chosen character 
-#                 hero.attack(characterList[userChoice])
-#                 if characterList[userChoice].alive():
-#                     characterList[userChoice].print_status()
-#             else:
-#                 print('Invalid character.')
-
-# if userChoice == "medic"
-#     chance = random.randint(0,100)
-#     if chance > 20:
-#         hero.attack(medic)
-#     else:
-#         hero.attack(medic)
-#         medic.health() + 2
-#         print("Medic has recuperated 2 health!")
-# if userChoice == "shadow"
-#     chance = random.randint(0,100)
-#     if chance > 90:
-#         hero.attack(shadow)
-#     else:
-#         ('Hero missed!')
