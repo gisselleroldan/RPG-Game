@@ -4,6 +4,7 @@
 # 2. do nothing - in which case the goblin will attack him anyway
 # 3. flee
 
+import random
 
 #Character (parent class)
 class Character():
@@ -28,8 +29,17 @@ class Hero(Character):
         self.name = "Hero"
 
     def attack(self, enemy):
-        enemy.health -= self.power
-        print(f"You do {self.power} damage to the {enemy.name}")
+
+        choice = random.randint(0,100)
+        if choice > 20:
+            print('Hero has double damage power! \n')
+            enemy.health -= self.power * 2
+            print(f"You do {self.power * 2} damage to the {enemy.name}")
+        else:
+            enemy.health -= self.power
+            print(f"You do {self.power} damage to the {enemy.name}")
+
+        
         
 
 # Zombie character
@@ -74,6 +84,7 @@ def main():
         raw_input = input()
         if raw_input == "1":
             # Hero attacks zombie
+            
             hero.attack(zombie)
             if zombie.alive():
                 zombie.print_status()
@@ -94,3 +105,4 @@ def main():
                 print(f'You are dead')
 
 main()
+
